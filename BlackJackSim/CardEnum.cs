@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJackSim
 {
-    public enum Card
+    public enum Rank
     {
         Two,
         Three,
