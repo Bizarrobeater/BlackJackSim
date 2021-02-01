@@ -6,12 +6,33 @@ using System.Threading.Tasks;
 
 namespace BlackJackSim
 {
-    public abstract class Card
+    public class Card
     {
-        internal Rank _rank;
-        internal Suit _suit;
-        internal Color _color;
-        internal bool _isRevealed;
+        internal Rank _rank { get; init; }
+        internal Suit _suit { get; init; }
+        internal bool _isRevealed { get; set; }
+
+        public Rank GetRank() => _rank;
+        public Suit GetSuit() => _suit;
+        public Color GetColor()
+        {
+            if (_suit == Suit.Spades ||
+                _suit == Suit.Clubs)
+                return Color.Black;
+            else
+                return Color.Red;
+        }
+
+        public Card(Rank rank, Suit suit)
+        {
+            _rank = rank;
+            _suit = suit;
+        }
+
+        public override string ToString()
+        {
+            return $"{_rank} {_suit}";
+        }
 
         public virtual void FlipCard()
         {
@@ -21,12 +42,8 @@ namespace BlackJackSim
 
     public class BlackJackCard : Card, ICard
     {
-        public BlackJackCard(Rank rank)
+        public BlackJackCard(Rank rank) : base(rank, Suit._)
         {
-            _rank = rank;
-            _suit = Suit._;
-            _color = Color._;
-            _isRevealed = false;
         }
 
         public Card GetCard()

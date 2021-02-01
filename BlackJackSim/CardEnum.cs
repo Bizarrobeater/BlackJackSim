@@ -17,19 +17,19 @@ namespace BlackJackSim
         Eight = 8,
         Nine = 9,
         Ten = 10,
-        Jack,
-        Queen,
-        King,
-        Ace,
-        _
+        Jack = 11,
+        Queen = 12,
+        King = 13,
+        Ace = 14,
+        _ = 15
     }
 
     public enum Suit
     {
-        Spade,
         Hearts,
-        Clubs,
         Diamonds,
+        Clubs,
+        Spades,
         _
     }
 
