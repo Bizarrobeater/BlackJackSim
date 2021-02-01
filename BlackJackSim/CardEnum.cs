@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace BlackJackSim
 {
-    public enum Rank
+    public enum Rank : int
     {
-        Two,
-        Three,
-        Four,
-        Five,
-        Six,
-        Seven,
-        Eight,
-        Nine,
-        Ten,
+        Two = 2,
+        Three = 3,
+        Four = 4,
+        Five = 5,
+        Six = 6,
+        Seven = 7,
+        Eight = 8,
+        Nine = 9,
+        Ten = 10,
         Jack,
         Queen,
         King,
-        Ace
+        Ace,
+        _
     }
 
     public enum Suit
@@ -28,12 +29,15 @@ namespace BlackJackSim
         Spade,
         Hearts,
         Clubs,
-        Diamonds
+        Diamonds,
+        _
     }
 
     public enum Color
     {
         Black,
-        Red
+        Red,
+        _
+
     }
 }

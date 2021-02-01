@@ -8,8 +8,8 @@ namespace BlackJackSim
 {
     public interface ICard
     {
-        public int GetValue();
-        public Card GetFace();
+        public int[] GetValue();
+        public Card GetCard();
         public bool IsRevealed();
     }
 }
