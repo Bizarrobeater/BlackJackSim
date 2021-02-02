@@ -1,0 +1,8 @@
+﻿namespace BlackJackSim
+{
+    class Dealer
+    {
+
+
+    }
+}
