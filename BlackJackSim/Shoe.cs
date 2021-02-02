@@ -6,15 +6,26 @@ using System.Threading.Tasks;
 
 namespace BlackJackSim
 {
-    public class BlackJackShoe : IShoe
+    public class CardShoe
     {
         internal List<Card> _cards;
 
-        public BlackJackShoe()
+        public CardShoe()
         {
             _cards = new List<Card>();
         }
 
+        // Initialised the shoe with a given amount of decks, then shuffles the shoe
+        public void InitialiseShoe(int amountDecks = 1)
+        {
+            for (int i = 0; i < amountDecks; i++)
+            {
+                _cards.AddRange(DeckFactory.NewDeck());
+            }
+            Shuffle();
+        }
+
+        // Add a single card to the shoe, if the card is revealed, flips it.
         public void AddCard(Card card)
         {
             if (card._isRevealed)
@@ -22,33 +33,55 @@ namespace BlackJackSim
             _cards.Add(card);
         }
 
-        public void AddDeck()
+        // Add a list of cards to the shoe and then shuffles
+        public void AddDeck(List<Card> cards)
         {
-            List<Card> tempList = DeckFactory.NewDeck();
-            foreach (Card card in tempList)
+            foreach (Card card in cards)
             {
-                AddCard(new BlackJackCard(card.GetRank()));
+                AddCard(card);
             }
+            Shuffle();
         }
 
-        public Card DrawCard()
+
+        // if there are still cards in the shoe, draws one.
+        // returns generic card if nothing is available
+        public bool DrawCardIfPossible(out Card returnCard)
         {
-            Card returnCard = _cards[0];
+            if (_cards.Count == 0)
+            {
+                returnCard = new Card(Rank._, Suit._);
+                return false;
+            }
+            
+            returnCard = _cards[0];
             _cards.RemoveAt(0);
-            return returnCard;
+            return true;
         }
+
 
         public void Shuffle()
         {
             Random rnd = new Random();
             int n = _cards.Count;
+
+            // n = current position a randomly chosen card will be placed at
+            // k = position of a randomly chosen card
+            
+            // loop starts with taking a random card and placing it at the end position
+            // card currently at the end position will be placed where the random card came from
+
+            // next loop is a new random card, and the position it is placed at is the end - 1 position
+            // this goes on until all cards have been randomly place
+
+            // this also means that when a card is randomly chosen and placed, it cannot be chosen again.
             while (n > 1)
             {
                 n--;
                 int k = rnd.Next(n + 1);
-                Card value = _cards[k];
+                Card card = _cards[k];
                 _cards[k] = _cards[n];
-                _cards[n] = value;
+                _cards[n] = card;
             }
         }
 

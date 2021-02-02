@@ -23,6 +23,8 @@ namespace BlackJackSim
                 return Color.Red;
         }
 
+        public bool IsRevealed() => _isRevealed;
+
         public Card(Rank rank, Suit suit)
         {
             _rank = rank;
@@ -40,40 +42,21 @@ namespace BlackJackSim
         }
     }
 
-    public class BlackJackCard : Card, ICard
-    {
-        public BlackJackCard(Rank rank) : base(rank, Suit._)
-        {
-        }
 
-        public Card GetCard()
-        {
-            return this;
-        }
-
-        public int[] GetValue()
-        {
-            return BlackJackCardValue();
-        }
-
-        public bool IsRevealed()
-        {
-            return _isRevealed;
-        }
-
-        private int[] BlackJackCardValue()
-        {
-            switch (_rank)
-            {
-                case Rank.King:
-                case Rank.Queen:
-                case Rank.Jack:
-                    return new int[] { 10 };
-                case Rank.Ace:
-                    return new int[] { 1, 11 };
-                default:
-                    return new int[] { (int)_rank };
-            }
-        }
-    }
+    //TODO: BlackJack Value Rules
+    
+    //private int[] BlackJackCardValue()
+    //{
+    //    switch (_rank)
+    //    {
+    //        case Rank.King:
+    //        case Rank.Queen:
+    //        case Rank.Jack:
+    //            return new int[] { 10 };
+    //        case Rank.Ace:
+    //            return new int[] { 1, 11 };
+    //        default:
+    //            return new int[] { (int)_rank };
+    //    }
+    //}
 }
