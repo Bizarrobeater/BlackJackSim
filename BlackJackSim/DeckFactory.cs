@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace BlackJackSim
 {
+
+    // Deckfactory creates a standard deck of 52 playing cards
     public static class DeckFactory
     {
         public static List<Card> NewDeck()
@@ -23,24 +25,29 @@ namespace BlackJackSim
             return newDeck;
         }
 
+        // returns the next suit in the enum
         private static Suit NextSuit(Suit suit)
         {
             Suit nextSuit = suit + 1;
             return nextSuit;
         }
 
+        // returns the next rank in the enum
         private static Rank NextRank(Rank rank)
         {
             Rank nextRank = rank + 1;
             return nextRank;
         }
 
+        // returns a bool based on if the next card exist
+        // only a case of of rank = _ and suit = _ is false
         private static bool succCard(Card card, out Card newCard)
         {
             Rank newRank = NextRank(card.GetRank());
 
             if (newRank != Rank._)
                 newCard = new Card(newRank, card.GetSuit());
+
             else
             {
                 Suit newSuit = NextSuit(card.GetSuit());
