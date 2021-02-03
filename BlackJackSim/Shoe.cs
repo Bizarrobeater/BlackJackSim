@@ -20,7 +20,7 @@ namespace BlackJackSim
         {
             for (int i = 0; i < amountDecks; i++)
             {
-                _cards.AddRange(DeckFactory.NewDeck());
+                _cards.AddRange(DeckCreator.NewDeck());
             }
             Shuffle();
         }

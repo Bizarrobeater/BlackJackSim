@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace BlackJackSim
 {
 
-    // Deckfactory creates a standard deck of 52 playing cards
-    public static class DeckFactory
+    // DeckCreator creates a standard deck of 52 playing cards
+    public static class DeckCreator
     {
         public static List<Card> NewDeck()
         {
