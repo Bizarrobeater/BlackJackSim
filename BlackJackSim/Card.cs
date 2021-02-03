@@ -33,7 +33,47 @@ namespace BlackJackSim
 
         public override string ToString()
         {
-            return $"{_rank} {_suit}";
+            string rank;
+            char suit;
+
+            switch (_rank)
+            {
+                case Rank.King:
+                    rank = "K";
+                    break;
+                case Rank.Queen:
+                    rank = "Q";
+                    break;
+                case Rank.Jack:
+                    rank = "J";
+                    break;
+                case Rank.Ace:
+                    rank = "A";
+                    break;
+                default:
+                    rank = ((int)_rank).ToString();
+                    break;
+            }
+
+            switch (_suit)
+            {
+                case Suit.Hearts:
+                    suit = '\u2665';
+                    break;
+                case Suit.Diamonds:
+                    suit = '\u2666';
+                    break;
+                case Suit.Clubs:
+                    suit = '\u2663';
+                    break;
+                case Suit.Spades:
+                    suit = '\u2660';
+                    break;
+                default:
+                    suit = '1';
+                    break;
+            }
+            return $"{rank} {suit}";
         }
 
         public virtual void FlipCard()
