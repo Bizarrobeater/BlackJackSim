@@ -22,7 +22,6 @@ namespace BlackJackSim
                 card.FlipCard();
 
             _cards.Add(card);
-            ActivateObservers(card);
         }
 
         public List<Card> ReadCards()
@@ -38,11 +37,11 @@ namespace BlackJackSim
 
         }
 
-        private void ActivateObservers(Card card)
+        private void ActivateObservers()
         {
             foreach (ICardObserver observer in _observers)
             {
-                observer.ObserveNewCard(card);
+                observer.ObserveCards();
             }
         }
     }

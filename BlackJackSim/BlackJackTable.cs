@@ -11,21 +11,20 @@ namespace BlackJackSim
         CardShoe _shoe;
         List<Card> _discards;
 
+        IPosition[] _positions;
         Player[] _players;
-        PlayerPosition[] _playerPosition;
 
         Dealer _dealer;
-        DealerPosition _dealerPosition;
 
         Rules _rules;
 
+        List<ITableObserver> _tableObservers;
+
         public BlackJackTable()
         {
+            _positions = new IPosition[8];
+            _positions[0] = new DealerPosition();
             _dealer = new Dealer();
-            _dealerPosition = new DealerPosition();
-
-
-
         }
 
         public void DealCards()

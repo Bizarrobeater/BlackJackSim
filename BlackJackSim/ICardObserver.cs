@@ -1,7 +1,9 @@
-﻿namespace BlackJackSim
+﻿using System.Collections.Generic;
+
+namespace BlackJackSim
 {
     interface ICardObserver
     {
-        public Card ObserveNewCard(Card card);
+        public List<Card> ObserveCards();
     }
 }
