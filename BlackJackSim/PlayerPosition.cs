@@ -7,8 +7,6 @@ namespace BlackJackSim
         int _currentBet;
         List<Card> _cards;
         bool _inUse;
-        List<ICardObserver> _observers;
-
 
         public PlayerPosition()
         {
@@ -34,15 +32,6 @@ namespace BlackJackSim
             List<Card> removedCards = new List<Card>(_cards);
             _cards.Clear();
             return removedCards;
-
-        }
-
-        private void ActivateObservers()
-        {
-            foreach (ICardObserver observer in _observers)
-            {
-                observer.ObserveCards();
-            }
         }
     }
 }

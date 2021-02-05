@@ -3,7 +3,6 @@
     class Player
     {
         int _money { get; set; }
-        ICardObserver _cardObserver;
 
         public Player(int startMoney)
         {

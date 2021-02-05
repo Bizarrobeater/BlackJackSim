@@ -18,8 +18,6 @@ namespace BlackJackSim
 
         Rules _rules;
 
-        List<ITableObserver> _tableObservers;
-
         public BlackJackTable()
         {
             _positions = new IPosition[8];
@@ -29,7 +27,8 @@ namespace BlackJackSim
 
         public void DealCards()
         {
-
         }
     }
+
+
 }
